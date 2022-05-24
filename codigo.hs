@@ -65,7 +65,7 @@ abecedarioDesde letra = init ([letra .. 'z'] ++ ['a' .. letra])
 -- b. Hacer una función desencriptarLetra :: Char -> Char -> Char que a partir una letra clave (la que reemplazaría a la a) y la letra que queremos desencriptar, retorna la letra que se corresponde con esta última en el abecedario que empieza con la letra clave. Por ejemplo: desencriptarLetra 'x' 'b' retornaría 'e'.
 
 enMismaPosicion _ _ [] = error "No existe la letra"
-enMismaPosicion _ [] _ = error "No existe la letra" -- Sólo para que no diga de todo Haskell
+enMismaPosicion _ [] _ = error "No existe la letra"
 enMismaPosicion elementoBuscado (cabezaLista1:restoLista1) (cabezaLista2:restoLista2)
                         | cabezaLista1 == elementoBuscado = cabezaLista2
                         | otherwise = enMismaPosicion elementoBuscado restoLista1 restoLista2
