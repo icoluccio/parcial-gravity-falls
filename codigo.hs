@@ -33,7 +33,7 @@ cuantaExperienciaAlEnfrentar persona criaturas = experiencia (foldr enfrentar pe
 
 -- Mostrar un ejemplo de consulta para el punto anterior incluyendo las siguientes criaturas: al siempredetras, a un grupo de 10 gnomos, un fantasma categoría 3 que requiere que la persona tenga menos de 13 años y un disfraz de oveja entre sus ítems para que se vaya y un fantasma categoría 1 que requiere que la persona tenga más de 10 de experiencia.
 requisitoFantasma persona = edad persona > 13 && tiene "disfraz de oveja" persona 
-unaPersonaDeEjemplo = UnaPersona {edad = 15, items = [], experiencia = 15}
+unaPersonaDeEjemplo = UnaPersona {edad = 15, items = ["Soplador de hojas"], experiencia = 15}
 ejemplo = cuantaExperienciaAlEnfrentar unaPersonaDeEjemplo [gnomo 10, fantasma 3 requisitoFantasma, fantasma 1 (\persona -> experiencia persona > 10)]
 
 
@@ -83,9 +83,9 @@ esLetra letra = elem letra (abecedarioDesde 'a')
 cesar letraClave = map (desencriptarLetra letraClave)
 
 -- Con zipwith, con el desencriptarLetra más simple
-cesar' letraClave texto = zipWithIf desencriptarLetraParaZipWith esLetra (repeat letraClave) texto 
+cesar' letraClave = zipWithIf desencriptarLetraParaZipWith esLetra (repeat letraClave) 
+-- cesar' letraClave texto = zipWithIf desencriptarLetraParaZipWith esLetra (repeat letraClave) texto 
 
---cesar letraClave = zipWithIf (desencriptarLetra letraClave) esLetra
 -- d. Realizar una consulta para obtener todas las posibles desencripciones (una por cada letra del abecedario) usando cesar para el texto "jrzel zrfaxal!"
 -- map (\letra -> cesar letra "jrzel zrfaxal!") (abecedarioDesde 'a')
 -- map (\letra -> cesar' letra "jrzel zrfaxal!") (abecedarioDesde 'a')
